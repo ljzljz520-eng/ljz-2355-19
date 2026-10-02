@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import VpDemo from './components/VpDemo.vue'
 import VpApi from './components/VpApi.vue'
 import BaseButton from './components/BaseButton.vue'
+import BilingualReader from './components/BilingualReader.vue'
 import './custom.css'
 
 export default {
@@ -10,7 +11,8 @@ export default {
     app.component('VpDemo', VpDemo)
     app.component('VpApi', VpApi)
     app.component('BaseButton', BaseButton)
-    
+    app.component('BilingualReader', BilingualReader)
+
     // Auto register examples
     const examples = import.meta.glob('../../examples/**/*.vue', { eager: true })
     for (const path in examples) {

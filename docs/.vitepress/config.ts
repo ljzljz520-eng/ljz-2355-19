@@ -4,6 +4,10 @@ import fs from 'fs'
 import path from 'path'
 
 export default defineConfig({
+  vite: {
+    server: { fs: { allow: ['..'] } }
+  },
+
   title: 'My Component Lib',
   description: 'A UI Component Library based on Vue 3',
   lastUpdated: true,
@@ -64,7 +68,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '指南', link: '/guide/installation', activeMatch: '/guide/' },
-          { text: '组件', link: '/components/button', activeMatch: '/components/' }
+          { text: '组件', link: '/components/button', activeMatch: '/components/' },
+          { text: '双语阅读', link: '/bilingual-demo', activeMatch: '/bilingual' }
         ],
         sidebar: {
           '/guide/': [
@@ -98,7 +103,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Guide', link: '/en/guide/installation', activeMatch: '/en/guide/' },
-          { text: 'Components', link: '/en/components/button', activeMatch: '/en/components/' }
+          { text: 'Components', link: '/en/components/button', activeMatch: '/en/components/' },
+          { text: 'Bilingual', link: '/en/bilingual-demo', activeMatch: '/bilingual' }
         ],
         sidebar: {
           '/en/guide/': [

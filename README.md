@@ -10,6 +10,17 @@
 - 📊 **API 自动展示**：美观的组件属性（Attributes）表格。
 - 🎨 **主题定制**：深度还原 Element Plus 的 UI 风格。
 
+## 🌐 双语阅读（段落级语义对齐）
+
+文档中心现已内置左右栏双语阅读器：按**语义节点（显式对齐图，非数组下标）**同步滚动，
+支持中文段落一对多拆分、共享代码引用一致、翻译基线审阅状态、章节重排跟随、
+历史版搜索、对齐冲突人工确认与整篇语言锁对比。
+
+- 在线演示：`npm run docs:dev` 后访问 **/bilingual-demo**
+- 内容 API：`npm run i18n:serve`（零依赖，http://localhost:5174/api/i18n）
+- 逻辑测试：`npm run i18n:test`（27 用例）
+- 设计说明：见 [`i18n/README.md`](./i18n/README.md)，SQL 建表见 `i18n/sql/schema.sql`
+
 ## 🚀 快速启动
 
 ### 1. 安装依赖
