@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import mdContainer from 'markdown-it-container'
 import fs from 'fs'
 import path from 'path'
+import { i18nApiProxy } from './apiProxy'
 
 export default defineConfig({
   title: 'My Component Lib',
@@ -9,6 +10,10 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   appearance: true,
+
+  vite: {
+    plugins: [i18nApiProxy(5174)]
+  },
 
   markdown: {
     config: (md) => {
@@ -64,7 +69,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '指南', link: '/guide/installation', activeMatch: '/guide/' },
-          { text: '组件', link: '/components/button', activeMatch: '/components/' }
+          { text: '组件', link: '/components/button', activeMatch: '/components/' },
+          { text: '双语阅读', link: '/bilingual/quickstart', activeMatch: '/bilingual/' }
         ],
         sidebar: {
           '/guide/': [
@@ -83,6 +89,16 @@ export default defineConfig({
                 { text: 'Button 按钮', link: '/components/button' }
               ]
             }
+          ],
+          '/bilingual/': [
+            {
+              text: '双语阅读（段落级对齐图）',
+              items: [
+                { text: '快速开始（当前版）', link: '/bilingual/quickstart' },
+                { text: '快速开始（历史 v1）', link: '/bilingual/quickstart-history-v1' },
+                { text: '常见问题（英文暂缺）', link: '/bilingual/faq' }
+              ]
+            }
           ]
         },
         footer: {
@@ -98,7 +114,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Guide', link: '/en/guide/installation', activeMatch: '/en/guide/' },
-          { text: 'Components', link: '/en/components/button', activeMatch: '/en/components/' }
+          { text: 'Components', link: '/en/components/button', activeMatch: '/en/components/' },
+          { text: 'Bilingual', link: '/bilingual/quickstart', activeMatch: '/bilingual/' }
         ],
         sidebar: {
           '/en/guide/': [
@@ -115,6 +132,16 @@ export default defineConfig({
               text: 'Basic Components',
               items: [
                 { text: 'Button', link: '/en/components/button' }
+              ]
+            }
+          ],
+          '/bilingual/': [
+            {
+              text: 'Bilingual Reader',
+              items: [
+                { text: 'Quick Start (current)', link: '/bilingual/quickstart' },
+                { text: 'Quick Start (history v1)', link: '/bilingual/quickstart-history-v1' },
+                { text: 'FAQ (EN missing)', link: '/bilingual/faq' }
               ]
             }
           ]

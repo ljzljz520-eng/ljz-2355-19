@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "id": "faq",
+      "title": "常见问题",
+      "current_ver": 0,
+      "created_at": "2026-10-02 10:38:11",
+      "langs": [
+        {
+          "lang": "zh",
+          "currentVersion": 1
+        }
+      ]
+    },
+    {
+      "id": "quickstart",
+      "title": "Quick Start",
+      "current_ver": 0,
+      "created_at": "2026-10-02 10:38:11",
+      "langs": [
+        {
+          "lang": "en",
+          "currentVersion": 2
+        },
+        {
+          "lang": "zh",
+          "currentVersion": 3
+        }
+      ]
+    }
+  ]
+}

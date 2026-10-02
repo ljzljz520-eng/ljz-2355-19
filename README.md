@@ -55,3 +55,27 @@ npm run docs:preview
 examples/button/basic.vue
 :::
 ```
+
+
+---
+
+## 🌐 文档中心双语阅读（语义节点对齐）
+
+除常规中英文站点外，本项目实现了独立的**双语对照阅读系统**：
+左右双栏按**语义节点图**同步（非数组下标），支持中文一段 ↔ 英文多段；
+内容 API 提供语言版本与对应关系，SQL 保存翻译基线与审阅状态。
+
+- 阅读入口：`/bilingual/quickstart`、历史版 `/bilingual/quickstart-history-v1`、语言暂缺 `/bilingual/faq`
+- 详细设计与 API：[`i18n/README.md`](./i18n/README.md)
+
+```bash
+npm test                # 39 个测试（解析/对齐图/状态机/锁/HTTP/前端内核）
+npm run i18n:reset      # 建库 + 播种历史版 + 生成静态快照
+npm run i18n:serve      # 内容 API :5174（dev 已配 /api 代理）
+npm run docs:dev        # 文档站
+```
+
+核心特性：章节重排不丢已验状态、原文修改仅相关译段待复核、共享代码 codeRef 不复制、
+参数名/`[[keep]]` 受保护校验、整篇语言锁 vs 段落锁、两译者同段乐观冲突、
+来源缺失/对齐冲突的人工确认入口、搜索可进入历史版并保持语义滚动位置、
+页面明确标注译文所基于的原文版本，不把过期译文呈现为完全同步。

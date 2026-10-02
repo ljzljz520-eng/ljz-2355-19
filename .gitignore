@@ -23,3 +23,7 @@ __pycache__/
 *.log
 .env
 .env.*
+
+# i18n runtime DB (recreate via `npm run i18n:reset`)
+server/data/*.sqlite
+server/data/*.sqlite-*

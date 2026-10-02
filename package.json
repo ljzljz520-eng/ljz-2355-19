@@ -1,15 +1,20 @@
 {
   "type": "module",
-  "name": "2355",
+  "name": "docs-i18n-bilingual",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "文档中心双语阅读：语义节点对齐图 + 翻译基线/审阅 + 内容 API + 双栏同步前端",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "i18n:serve": "node server/bin/i18n.js serve --port 5174",
+    "i18n:seed": "node server/bin/i18n.js seed",
+    "i18n:snapshot": "node server/bin/i18n.js snapshot docs/public/i18n",
+    "i18n:ingest": "node server/bin/i18n.js ingest",
+    "i18n:reset": "rm -f server/data/i18n.sqlite && npm run i18n:seed && npm run i18n:snapshot",
+    "test": "node --test server/test/"
   },
-  "keywords": [],
+  "keywords": ["i18n", "bilingual", "vitepress", "alignment", "translation-review"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -18,5 +23,8 @@
     "vitepress": "^1.6.4",
     "vue": "^3.5.27",
     "vue-component-meta": "^3.2.4"
+  },
+  "dependencies": {
+    "sql.js": "^1.14.2"
   }
 }
