@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>文档中心 · 双语阅读</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">📖 文档中心 <span class="brand-sub">双语阅读 · 语义对齐</span></div>
+  <div class="controls">
+    <select id="docSel" title="文档"></select>
+    <select id="tgtSel" title="目标语言">
+      <option value="en">English</option>
+      <option value="ja">日本語(暂缺演示)</option>
+    </select>
+    <select id="modeSel" title="同步模式">
+      <option value="graph">段落级对齐图</option>
+      <option value="lock">整篇语言锁</option>
+    </select>
+    <select id="srcVSel" title="原文版本"></select>
+    <select id="tgtVSel" title="译文版本"></select>
+    <button id="lockBtn" class="btn"></button>
+    <div class="searchbox">
+      <input id="searchInput" placeholder="搜索正文… 进入历史版" />
+      <div id="searchResults" class="search-results hidden"></div>
+    </div>
+    <button id="reviewBtn" class="btn btn-warn">审阅台 <span id="reviewBadge" class="badge hidden">0</span></button>
+  </div>
+</header>
+
+<div id="banner" class="banner"></div>
+
+<main class="reader">
+  <section class="pane" id="srcPane">
+    <div class="pane-head"><span class="pane-title" id="srcTitle">原文</span><span class="pane-ver" id="srcVer"></span></div>
+    <div class="pane-body" id="srcBody"></div>
+  </section>
+  <section class="pane" id="tgtPane">
+    <div class="pane-head"><span class="pane-title" id="tgtTitle">译文</span><span class="pane-ver" id="tgtVer"></span></div>
+    <div class="pane-body" id="tgtBody"></div>
+  </section>
+</main>
+
+<!-- 翻译/审阅弹层 -->
+<div id="editor" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <b id="edTitle">翻译段</b>
+      <span id="edStatus" class="pill"></span>
+      <button class="btn" id="edClose">✕</button>
+    </div>
+    <div class="modal-src" id="edSource"></div>
+    <textarea id="edBody" rows="6" placeholder="译文…（保留 `inline code` 与 {{不可翻译标记}}）"></textarea>
+    <div id="edConflict" class="conflict-box hidden">
+      <b>⚠ 两位译者并发编辑（乐观锁冲突）</b>
+      <div class="two-col">
+        <div><label>你的版本（base rev <span id="edBaseRev"></span>）</label><pre id="edMine"></pre></div>
+        <div><label>服务端已保存（rev <span id="edSrvRev"></span>，by <span id="edSrvBy"></span>）</label><pre id="edSrv"></pre></div>
+      </div>
+      <p class="hint">请人工合并后保存；合并版进入复核，不会静默覆盖任何一方。</p>
+      <div class="rv-actions"><button class="btn btn-primary" id="mergeBtn">以文本框内容作为人工合并版保存</button></div>
+    </div>
+    <div class="modal-foot">
+      <span id="edMeta" class="hint"></span>
+      <span class="spacer"></span>
+      <button class="btn" id="edSave">保存草稿</button>
+      <button class="btn" id="edSubmit">提交复核</button>
+      <button class="btn btn-primary" id="edVerify">验收通过</button>
+    </div>
+  </div>
+</div>
+
+<!-- 审阅台抽屉 -->
+<aside id="reviewPanel" class="drawer hidden">
+  <div class="drawer-head"><b>审阅台 · 人工确认入口</b><button class="btn" id="rvClose">✕</button></div>
+  <div id="rvList" class="drawer-body"></div>
+</aside>
+
+<script src="/app.js" type="module"></script>
+</body>
+</html>
