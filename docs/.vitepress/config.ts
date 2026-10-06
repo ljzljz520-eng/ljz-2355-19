@@ -72,7 +72,8 @@ export default defineConfig({
               text: '基础',
               items: [
                 { text: '安装', link: '/guide/installation' },
-                { text: '快速开始', link: '/guide/quickstart' }
+                { text: '快速开始', link: '/guide/quickstart' },
+                { text: '双语对照阅读', link: '/guide/bilingual' }
               ]
             }
           ],
@@ -106,7 +107,8 @@ export default defineConfig({
               text: 'Basic',
               items: [
                 { text: 'Installation', link: '/en/guide/installation' },
-                { text: 'Quick Start', link: '/en/guide/quickstart' }
+                { text: 'Quick Start', link: '/en/guide/quickstart' },
+                { text: 'Bilingual Reading', link: '/en/guide/bilingual' }
               ]
             }
           ],

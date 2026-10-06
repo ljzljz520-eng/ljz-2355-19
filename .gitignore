@@ -23,3 +23,9 @@ __pycache__/
 *.log
 .env
 .env.*
+
+# bilingual docs server
+server/docs.db
+server/docs.db-journal
+server/docs.db-wal
+server/docs.db-shm
